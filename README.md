@@ -28,8 +28,14 @@ A school fee payment portal demo built with [Stripe Checkout](https://stripe.com
 This demo runs against a [Stripe Sandbox](https://docs.stripe.com/sandboxes) — an isolated test environment with no real money involved.
 
 1. Go to the [Stripe Dashboard](https://dashboard.stripe.com) and sign in
-2. Open the environment switcher in the top-left corner and select **New sandbox**
-3. Give it a name (e.g. `GESS Demo`) and create it
+2. Open the environment switcher in the top-left corner and select **Create sandbox**
+
+   ![Environment switcher](docs/screenshots/sandbox.png)
+
+3. Give it a name and choose a starting configuration — **Copy your account** is recommended so payment methods and settings are pre-configured
+
+   ![Create sandbox modal](docs/screenshots/sandbox_options.png)
+
 4. Inside the sandbox, go to **Developers → API keys**
 5. Copy the **Secret key** (`sk_test_...`) and **Publishable key** (`pk_test_...`)
 
