@@ -1,0 +1,30 @@
+{
+  "name": "gess-parents-portal",
+  "version": "1.0.0",
+  "description": "GESS Parents Portal — school fee payment demo using Stripe Checkout",
+  "scripts": {
+    "dev": "nodemon -e js,json,hbs,css app.js",
+    "start": "node app.js",
+    "build": "npx tailwindcss -i src/tailwind.css -o public/css/tailwind.css"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "hbs": "^4.2.0",
+    "knex": "^2.3.0",
+    "nodemon": "^3.0.1",
+    "path": "^0.12.7",
+    "set-value": "^4.1.0",
+    "stripe": "^14.2.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^2.2.19"
+  }
+}

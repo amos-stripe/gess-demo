@@ -1,0 +1,393 @@
+/* GESS Parents Portal — Demo Styles */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; padding: 0; }
+
+:root {
+  --gess-green: #084e29;
+  --gess-lime: #d3da00;
+  --gess-green-light: #0d6b38;
+  --gess-green-dark: #053319;
+}
+
+/* Base */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f5f6f7;
+  color: #1a1a1a;
+}
+
+/* ─── Navigation ───────────────────────────────────── */
+.gess-nav {
+  background-color: var(--gess-green);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.gess-nav-link {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.gess-nav-link:hover {
+  color: #fff;
+}
+
+.gess-nav-link.active {
+  color: var(--gess-lime);
+  border-bottom: 2px solid var(--gess-lime);
+  font-weight: 600;
+}
+
+.gess-avatar {
+  background-color: var(--gess-lime);
+  color: var(--gess-green);
+  font-weight: 700;
+  font-size: 0.75rem;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Login Page ────────────────────────────────────── */
+.login-page {
+  min-height: 100vh;
+  background-color: var(--gess-green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.5rem 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  text-align: center;
+  overflow: hidden;
+}
+
+.login-logo {
+  height: 72px;
+  width: auto;
+  margin-bottom: 1.25rem;
+}
+
+.login-school-name {
+  font-size: 0.8rem;
+  color: #666;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.login-portal-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gess-green);
+  margin-bottom: 1.5rem;
+}
+
+.login-welcome {
+  background-color: #f0faf4;
+  border: 1px solid #c3e6cf;
+  border-radius: 8px;
+  padding: 0.875rem 1.25rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.login-welcome-label {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.125rem;
+}
+
+.login-welcome-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gess-green);
+}
+
+.login-btn {
+  display: block;
+  /* negative margin to break out of card padding, full bleed */
+  margin: 0 -2.5rem -2.5rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--gess-green);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.15s;
+}
+
+.login-btn:hover {
+  background-color: var(--gess-green-light);
+  color: #fff;
+}
+
+.login-footer {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/* ─── Page Header ────────────────────────────────────── */
+.page-header {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1.5rem 0;
+}
+
+.page-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.page-subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.125rem;
+}
+
+/* ─── Fees Page ────────────────────────────────────── */
+.fee-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.fee-card-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fee-card-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.fee-badge {
+  background-color: #ecfdf5;
+  color: #065f46;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  border: 1px solid #a7f3d0;
+}
+
+.fee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fee-table th {
+  background-color: #f9fafb;
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.fee-table th.right,
+.fee-table td.right {
+  text-align: right;
+}
+
+.fee-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.9375rem;
+  color: #374151;
+}
+
+.fee-table tr:last-child td {
+  border-bottom: none;
+}
+
+.fee-student {
+  font-weight: 500;
+  color: #111827;
+}
+
+.fee-grade {
+  font-size: 0.8125rem;
+  color: #9ca3af;
+  margin-top: 0.1rem;
+}
+
+.fee-amount {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.fee-total-row {
+  background-color: #f9fafb;
+  border-top: 2px solid #e5e7eb !important;
+}
+
+.fee-total-label {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: #111827;
+}
+
+.fee-total-amount {
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: #111827;
+}
+
+/* ─── Pay Button ─────────────────────────────────────── */
+.pay-btn-wrap {
+  padding: 1.25rem 1.5rem;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background-color: var(--gess-green);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.pay-btn:hover {
+  background-color: var(--gess-green-light);
+}
+
+.pay-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.stripe-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+.stripe-badge svg {
+  height: 16px;
+  width: auto;
+}
+
+/* ─── Success Page ─────────────────────────────────── */
+.success-icon-wrap {
+  width: 4rem;
+  height: 4rem;
+  background-color: #ecfdf5;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.success-icon-wrap svg {
+  width: 2rem;
+  height: 2rem;
+  color: #059669;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.9rem;
+}
+
+.receipt-row:last-child {
+  border-bottom: none;
+}
+
+.receipt-label {
+  color: #6b7280;
+  font-weight: 400;
+}
+
+.receipt-value {
+  color: #111827;
+  font-weight: 500;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.8125rem;
+}
+
+.receipt-value.large {
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+/* ─── Demo Tools (Ctrl+H highlight) ─────────────────── */
+body.stripe-highlight .stripe-element {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+body.stripe-highlight .pay-btn {
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.35);
+}
+
+/* ─── Info Box ───────────────────────────────────────── */
+.info-box {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+  font-size: 0.8125rem;
+  color: #92400e;
+}
+
+/* ─── Reset / Demo Controls ──────────────────────────── */
+.reset-link {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-decoration: none;
+}
+
+.reset-link:hover {
+  color: #6b7280;
+  text-decoration: underline;
+}

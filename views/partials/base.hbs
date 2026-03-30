@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GESS Parents Portal</title>
+  {{> head }}
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0 !important; padding: 0; background: #f5f6f7; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+    .gess-nav-link { color: rgba(255,255,255,0.65); font-size: 0.875rem; text-decoration: none; white-space: nowrap; }
+    .gess-nav-link:hover { color: #fff; }
+    .gess-nav-link.active { color: #d3da00; font-weight: 600; border-bottom: 2px solid #d3da00; padding-bottom: 2px; }
+    .page-content { max-width: 1100px; margin: 0 auto; padding: 0 3rem; }
+    body.stripe-highlight .stripe-element { outline: 3px solid #2563eb; outline-offset: 3px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation — all layout via inline styles to guarantee flex rendering -->
+  <nav style="background-color: #084e29; box-shadow: 0 2px 8px rgba(0,0,0,0.25);">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0.75rem 3rem; display: flex; flex-direction: row; align-items: center; justify-content: space-between; min-height: 72px;">
+
+      <!-- Left: logo + school name -->
+      <div style="display: flex; flex-direction: row; align-items: center; gap: 12px; flex-shrink: 0;">
+        <img src="/img/gess-logo.png" alt="GESS" style="height: 40px; width: auto; display: block; flex-shrink: 0;" />
+        <div style="display: flex; flex-direction: column; gap: 1px;">
+          <span style="color: rgba(255,255,255,0.9); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.02em; line-height: 1.3; white-space: nowrap;">German European School Singapore</span>
+          <span style="color: #d3da00; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.3; white-space: nowrap;">Parents Portal</span>
+        </div>
+      </div>
+
+      <!-- Right: nav links + user -->
+      <div style="display: flex; flex-direction: row; align-items: center; gap: 24px; flex-shrink: 0;">
+        <a href="/fees" class="gess-nav-link{{#if activeFees}} active{{/if}}">Fees</a>
+        <a href="#" class="gess-nav-link">Documents</a>
+        <a href="#" class="gess-nav-link">Dashboard</a>
+        <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.2); flex-shrink: 0;"></div>
+        <a href="/reset" style="color: rgba(255,255,255,0.3); font-size: 0.7rem; text-decoration: none; white-space: nowrap;">Reset Demo</a>
+      </div>
+
+    </div>
+  </nav>
+
+  <main>
+    {{#> content-block}}{{/content-block}}
+  </main>
+
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && e.key === 'h') {
+        e.preventDefault();
+        document.body.classList.toggle('stripe-highlight');
+        console.log('Stripe highlight:', document.body.classList.contains('stripe-highlight') ? 'ON' : 'OFF');
+      }
+    });
+  </script>
+
+</body>
+</html>

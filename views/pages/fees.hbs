@@ -1,0 +1,130 @@
+{{#> base activeFees=true }}
+
+{{#*inline "content-block"}}
+
+<!-- Page header -->
+<div style="background: #fff; border-bottom: 1px solid #e5e7eb; padding: 1.375rem 0;">
+  <div class="page-content">
+    <div style="display: flex; flex-direction: row; align-items: flex-start; justify-content: space-between; gap: 1rem;">
+      <div>
+        <h1 style="font-size: 1.375rem; font-weight: 700; color: #111827; margin: 0 0 0.3rem;">School Fees — Term 2, 2026</h1>
+        <div style="display: flex; flex-direction: row; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <p style="font-size: 0.875rem; color: #6b7280; margin: 0;">{{family}} &nbsp;·&nbsp; Due 15 April 2026</p>
+          <span style="background-color: #ecfdf5; color: #065f46; font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.625rem; border-radius: 9999px; border: 1px solid #a7f3d0; white-space: nowrap;">Invoice #{{invoice}}</span>
+        </div>
+      </div>
+      <!-- Family switcher -->
+      <div style="flex-shrink: 0;">
+        <label style="font-size: 0.7rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 0.25rem;">Demo: Switch Family</label>
+        <select onchange="window.location.href='/fees?family='+this.value" style="font-size: 0.8125rem; padding: 0.375rem 2rem 0.375rem 0.625rem; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; color: #374151; cursor: pointer; appearance: auto;">
+          {{#each families}}
+          <option value="{{this.key}}" {{#if this.selected}}selected{{/if}}>{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="page-content" style="padding-top: 2rem; padding-bottom: 2rem; display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; align-items: start;">
+
+  <!-- Fee table card -->
+  <div style="background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border: 1px solid #e5e7eb; overflow: hidden;">
+
+    <!-- Card header -->
+    <div style="padding: 1.125rem 1.5rem; border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; justify-content: space-between;">
+      <span style="font-size: 0.9375rem; font-weight: 600; color: #374151;">Fee Summary</span>
+      <span style="font-size: 0.8125rem; color: #9ca3af;">{{studentCount}} students enrolled</span>
+    </div>
+
+    <!-- Table -->
+    <table style="width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #f9fafb; border-bottom: 1px solid #e5e7eb;">
+          <th style="padding: 0.75rem 1.5rem; text-align: left; font-size: 0.7rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em;">Student</th>
+          <th style="padding: 0.75rem 1.5rem; text-align: left; font-size: 0.7rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em;">Description</th>
+          <th style="padding: 0.75rem 1.5rem; text-align: right; font-size: 0.7rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em;">Amount (SGD)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each items}}
+        <tr style="border-bottom: 1px solid #f3f4f6;">
+          <td style="padding: 1rem 1.5rem;">
+            <div style="font-weight: 600; font-size: 0.9375rem; color: #111827;">{{this.student}}</div>
+            <div style="font-size: 0.8125rem; color: #9ca3af; margin-top: 0.1rem;">{{this.grade}}</div>
+          </td>
+          <td style="padding: 1rem 1.5rem; font-size: 0.875rem; color: #6b7280;">{{this.description}}</td>
+          <td style="padding: 1rem 1.5rem; text-align: right; font-size: 0.9375rem; font-weight: 500; color: #374151; font-variant-numeric: tabular-nums;">SGD {{this.displayAmount}}</td>
+        </tr>
+        {{/each}}
+        <!-- Total row -->
+        <tr style="background-color: #f9fafb; border-top: 2px solid #e5e7eb;">
+          <td colspan="2" style="padding: 1rem 1.5rem; font-weight: 700; font-size: 0.9375rem; color: #111827;">Total Due</td>
+          <td style="padding: 1rem 1.5rem; text-align: right; font-weight: 700; font-size: 1.0625rem; color: #111827; font-variant-numeric: tabular-nums;">SGD {{total}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pay button row -->
+    <div style="padding: 1.125rem 1.5rem; background: #f9fafb; border-top: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: space-between;">
+
+      <!-- Stripe badge -->
+      <div class="stripe-element">
+        <img src="/img/powered-by-stripe.svg" alt="Powered by Stripe" style="height: 26px; width: auto; display: block; opacity: 0.8;" />
+      </div>
+
+      <form action="/create-checkout" method="POST">
+        <input type="hidden" name="family" value="{{familyKey}}" />
+        <button type="submit" class="stripe-element" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.625rem; background-color: #084e29; color: #fff; font-size: 0.9375rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 1rem; height: 1rem;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+          </svg>
+          Pay Now — SGD {{total}}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+
+    <!-- Account summary -->
+    <div style="background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border: 1px solid #e5e7eb; padding: 1.25rem 1.5rem;">
+      <div style="font-size: 0.7rem; font-weight: 700; color: #374151; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.07em;">Account Summary</div>
+      <div style="display: flex; flex-direction: column; gap: 0.625rem;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; align-items: baseline;">
+          <span style="color: #6b7280;">Family</span>
+          <span style="font-weight: 500; color: #111827;">{{family}}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; align-items: baseline;">
+          <span style="color: #6b7280;">Parent</span>
+          <span style="font-weight: 500; color: #111827;">{{parent}}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; align-items: baseline;">
+          <span style="color: #6b7280;">Term</span>
+          <span style="font-weight: 500; color: #111827;">Term 2, 2026</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; align-items: baseline;">
+          <span style="color: #6b7280;">Students</span>
+          <span style="font-weight: 500; color: #111827;">{{studentCount}} enrolled</span>
+        </div>
+        <div style="height: 1px; background: #f3f4f6; margin: 0.25rem 0;"></div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.9375rem; align-items: baseline;">
+          <span style="color: #6b7280; font-weight: 500;">Amount Due</span>
+          <span style="font-weight: 700; color: #111827;">SGD {{total}}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Help -->
+    <div style="text-align: center; font-size: 0.75rem; color: #9ca3af; padding: 0.25rem;">
+      Questions about your fees?<br />
+      <a href="#" style="color: #6b7280;">Contact the Finance Office</a>
+    </div>
+
+  </div>
+</div>
+
+{{/inline}}
+{{/base}}

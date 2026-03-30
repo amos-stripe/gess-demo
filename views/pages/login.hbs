@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GESS Parents Portal — Sign In</title>
+  <link rel="stylesheet" href="/css/tailwind.css" />
+  <link rel="stylesheet" href="/css/app.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; padding: 0; }
+  </style>
+</head>
+<body>
+
+<div style="min-height: 100vh; background-color: #084e29; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem; position: relative; overflow: hidden; padding: 2rem;">
+
+  <!-- Background decoration -->
+  <div style="position: absolute; inset: 0; overflow: hidden; pointer-events: none;">
+    <div style="position: absolute; top: -80px; right: -80px; width: 360px; height: 360px; border-radius: 9999px; background: rgba(211,218,0,0.08);"></div>
+    <div style="position: absolute; bottom: -120px; left: -60px; width: 480px; height: 480px; border-radius: 9999px; background: rgba(211,218,0,0.05);"></div>
+  </div>
+
+  <!-- Card -->
+  <div class="login-card" style="position: relative;">
+
+    <!-- Logo -->
+    <img src="/img/gess-logo.png" alt="GESS" class="login-logo" style="margin: 0 auto 1rem;" />
+
+    <!-- School name + portal label -->
+    <div class="login-school-name">German European School Singapore</div>
+    <div class="login-portal-label">Parents Portal</div>
+
+    <!-- Welcome back message -->
+    <div class="login-welcome">
+      <div class="login-welcome-label">Welcome back</div>
+      <div class="login-welcome-name">Sarah Smith</div>
+    </div>
+
+    <!-- Continue button — full bleed at bottom of card -->
+    <a href="/fees" class="login-btn">Continue as Parent</a>
+
+  </div>
+
+  <!-- Footer note — outside the card -->
+  <div style="color: rgba(255,255,255,0.35); font-size: 0.75rem; text-align: center; position: relative;">
+    Secure sign-in &nbsp;·&nbsp; GESS Academic Year 2025/26
+  </div>
+
+  <!-- Copyright -->
+  <div style="position: absolute; bottom: 1.25rem; color: rgba(255,255,255,0.2); font-size: 0.65rem; letter-spacing: 0.04em;">
+    &copy; 2026 German European School Singapore
+  </div>
+
+</div>
+
+</body>
+</html>
